@@ -1,2 +1,9 @@
-<h1>Hello, Ruby on Rails!</h1>
-<%= link_to 'My Blog', articles_path %>
+<header class="container welcome">
+  <div class='row'>
+    <%= image_tag 'danny.jpg', class: "img-rounded", width: '200' %>      
+  </div>
+  <h1 class="text-center">Welcome! I'm Danny.</h1>
+  <div class='row text-center button'>
+    <%= link_to 'Enter the Blog', articles_path, class: 'btn btn-default btn-lg' %>    
+  </div>
+</header>

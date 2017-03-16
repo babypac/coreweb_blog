@@ -1,19 +1,25 @@
-<section>
-  <h1>Listing articles</h1>
-  <%= link_to 'New article', new_article_path %>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
+<section class="container table-responsive article_index">
+  <header class='page-header posts row'>
+    <h1 class='col-sm-8'>Danny's Posts</h1>
+    <div class='col-sm-4 text-right'>
+      <%= link_to 'New article', new_article_path, class: 'btn btn-success btn-lg' %>
+    </div>
+  </header>
+  <table class='table table-bordered'>
+    <tr class='active'>
+      <th class="text-center">ID</th>
+      <th class="text-center">Title</th>
+      <th class="text-center">Date</th>
+      <th colspan="2" class="text-center">Action</th>
     </tr>
    
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article_path(article),
+      <tr id='article_tr'>
+        <td id='article_id' class='text-center'><%= article.id %></td>
+        <td id='article_title' class='text-center'><%= link_to article.title, article %></td>
+        <td id='article_date' class='text-center'><%= article.created_at.strftime('%Y.%m.%d') %></td>
+        <td id='article_edit' class='text-center'><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-info btn-sm' %></td>
+        <td id='article_destroy' class='text-center'><%= link_to 'Destroy', article_path(article), class: 'btn btn-danger btn-sm',
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
       </tr>
